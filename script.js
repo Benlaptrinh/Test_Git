@@ -50,4 +50,30 @@ document.addEventListener('DOMContentLoaded', () => {
         deleteBtn.addEventListener('click', () => item.remove());
         return deleteBtn;
     }
+    function addItem(text) {
+        const li = document.createElement('li');
+
+        // Tạo checkbox để đánh dấu hoàn thành
+        const cb = document.createElement('input');
+        cb.type = 'checkbox';
+
+        // Tạo span chứa nội dung item
+        const span = document.createElement('span');
+        span.textContent = text;
+
+        // Khi checkbox thay đổi -> toggle class 'done'
+        cb.addEventListener('change', () => {
+            li.classList.toggle('done', cb.checked);
+        });
+
+        li.appendChild(cb);
+        li.appendChild(span);
+
+        // Thêm nút Edit và Delete như cũ
+        li.appendChild(createEditButton(li));
+        li.appendChild(createDeleteButton(li));
+
+        itemList.appendChild(li);
+    }
+
 });
