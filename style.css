@@ -74,3 +74,9 @@ ul li button {
 ul li button:hover {
     background: #c82333;
 }
+
+/* Item được đánh dấu là hoàn thành */
+.done {
+    text-decoration: line-through;
+    opacity: 0.7;
+}
