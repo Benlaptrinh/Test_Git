@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         deleteBtn.addEventListener('click', () => item.remove());
         return deleteBtn;
     }
+<<<<<<< HEAD
     function addItem(text) {
         const li = document.createElement('li');
 
@@ -70,10 +71,48 @@ document.addEventListener('DOMContentLoaded', () => {
         li.appendChild(span);
 
         // Thêm nút Edit và Delete như cũ
+=======
+
+    function addItem(text) {
+        const li = document.createElement('li');
+
+        // span chứa text để dễ sửa
+        const span = document.createElement('span');
+        span.textContent = text;
+        li.appendChild(span);
+
+        // thêm nút Edit & Delete
+>>>>>>> c9eb1c9 (refactor: restructure addItem and edit button)
         li.appendChild(createEditButton(li));
         li.appendChild(createDeleteButton(li));
 
         itemList.appendChild(li);
     }
 
+<<<<<<< HEAD
+=======
+    function createEditButton(item) {
+        const editBtn = document.createElement('button');
+        editBtn.textContent = 'Edit';
+        editBtn.addEventListener('click', () => {
+            const span = item.querySelector('span');
+            if (span) {
+                itemInput.value = span.textContent;   // đưa text vào input
+                editMode = item;                      // bật chế độ edit
+                form.querySelector('button').textContent = 'Update';
+            }
+        });
+        return editBtn;
+    }
+
+    function createDeleteButton(item) {
+        const deleteBtn = document.createElement('button');
+        deleteBtn.textContent = 'Delete';
+        deleteBtn.addEventListener('click', () => {
+            item.remove();
+        });
+        return deleteBtn;
+    }
+
+>>>>>>> c9eb1c9 (refactor: restructure addItem and edit button)
 });
